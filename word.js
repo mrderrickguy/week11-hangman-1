@@ -5,6 +5,7 @@ var main = require("./main.js");
 var wordToCheck = main.chosenWord;
 console.log("Word to check is "+wordToCheck);
 console.log("Main letter: "+main.letter);
+console.log("Word guess: "+main.wordGuess);
 
 //Function to check if a letter is present in the word.
 exports.checker = function(){
