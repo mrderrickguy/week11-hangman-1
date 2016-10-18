@@ -24,9 +24,13 @@ letter.displayWord();
 exports.requestInfo = function(){
 	var questions = [
 	{
-		type: "input",
+		type: "list",
 		name: "whatDo",
-		message: "What would you like to guess? 'letter' or 'word'?"
+		message: "What would you like to guess?",
+		choices:[
+		"letter",
+		"word"
+		]
 	}
 	];
 

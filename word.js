@@ -11,7 +11,6 @@ exports.checker = function(){
 		}
 	}
 	letter.displayWord();
-	if()
 	if(main.gameOver == false){
 		main.requestInfo();
 	}
