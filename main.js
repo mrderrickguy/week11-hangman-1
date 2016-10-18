@@ -23,6 +23,7 @@ exports.requestInfo = function(){
 	];
 
 	inquirer.prompt(questions).then(function(answers){
+//If the user wants to guess a letter, we run inquirer again to ask what letter then pass off to the checker in word.js.
 		if(answers.whatDo == "letter"){
 			var letterQ = [
 			{
@@ -37,6 +38,7 @@ exports.requestInfo = function(){
 				word.checker();
 			})
 		}
+//If the user wants to guess a word, we run inquirer again to guess what word, then pass off to the wordChecker in word.js
 		else if(answers.whatDo == "word"){
 			var wordQ = [
 			{
@@ -50,6 +52,7 @@ exports.requestInfo = function(){
 				word.wordCheck();
 			})
 		}
+//If the user puts in something other than word or letter, we ask them what they want to do again. 
 		else{
 			console.log("Wrong answer. Please try again.");
 			exports.requestInfo();
@@ -57,5 +60,5 @@ exports.requestInfo = function(){
 	})
 };
 
-
+//Kicks off the first requestInfo function. Will need to make this run until the word has been guessed/the man has been hung. 
 exports.requestInfo();
