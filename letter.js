@@ -26,6 +26,7 @@ exports.displayWord = function(){
 	console.log(guessDisplay);
 };
 
+//Function to make changes to the guessArray when a correct letter is guessed. 
 exports.editArray = function(position, letter){
 	guessArr[position] = letter; 
 };
