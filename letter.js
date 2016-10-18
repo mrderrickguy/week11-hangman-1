@@ -23,10 +23,9 @@ exports.displayWord = function(){
 	for(var i = 0; i <guessArr.length; i++){
 		guessDisplay += guessArr[i]+" ";
 	}
-	console.log(guessDisplay);	
+	console.log(guessDisplay);
 };
 
 exports.editArray = function(position, letter){
 	guessArr[position] = letter; 
-	displayWord();
-}
+};

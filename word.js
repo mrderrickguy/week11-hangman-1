@@ -6,14 +6,19 @@ var letter = require("./letter.js");
 exports.checker = function(){
 	var wordToCheck = main.chosenWord;
 	for(var i = 0; i < wordToCheck.length; i++){
-		console.log(wordToCheck.charAt(i));
 		if(wordToCheck.charAt(i) == main.letter){
-			console.log("Function to add guessed letter to array");
-		}
-		else{
-			console.log("Function to tighten the hangman's noose.");
+			letter.editArray(i, main.letter);
 		}
 	}
+	letter.displayWord();
+	if()
+	if(main.gameOver == false){
+		main.requestInfo();
+	}
+	else if(main.gameOver == true){
+		console.log("Game over");
+	}
+
 }; 
 
 exports.wordCheck = function(){
