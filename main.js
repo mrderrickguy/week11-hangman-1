@@ -10,8 +10,9 @@ exports.letter;
 exports.wordGuess;
 //Creates a variable called chosenWord that is set to equal the game.js function chooseWord's return. (Is this even english anymore?) This is an exports because we will need to acces it in other JS files. 
 exports.chosenWord = game.chooseWord();
+console.log(exports.chosenWord);
 
-//Function to request user input to decide whether you want to guess a letter or guess the word. 
+//Function to request user input to decide whether you want to guess a letter or guess the word, then ask you what letter or word you want to guess. 
 exports.requestInfo = function(){
 	var questions = [
 	{
@@ -22,14 +23,32 @@ exports.requestInfo = function(){
 	];
 
 	inquirer.prompt(questions).then(function(answers){
-		
-		var answer = JSON.Stringify(answers.whatDo);
-		console.log(answer);
-		if(answer == "letter"){
-			guess("letter");
+		if(answers.whatDo == "letter"){
+			var letterQ = [
+			{
+				type: "input",
+				name: "letter",
+				message: "Which letter do you choose?"
+			}
+			];
+
+			inquirer.prompt(letterQ).then(function(answers){
+				exports.letter = answers.letter;
+				word.checker();
+			})
 		}
-		else if(answers == "word"){
-			console.log("You want to choose a word");
+		else if(answers.whatDo == "word"){
+			var wordQ = [
+			{
+				type: "input",
+				name: "word",
+				message: "Which word do you think it is?"
+			}
+			];
+			inquirer.prompt(wordQ).then(function(answers){
+				exports.wordGuess = answers.word;
+				word.wordCheck();
+			})
 		}
 		else{
 			console.log("Wrong answer. Please try again.");
@@ -38,35 +57,5 @@ exports.requestInfo = function(){
 	})
 };
 
-//Function to request user input to provide a guess, whether you asked for a letter or a word. 
-exports.guess = function(type){
-	if(type == "letter"){
-		var questions = [
-				{
-					type: "input",
-					name: "letter",
-					message: "Which letter do you choose?"
-				}
-		];
-
-		inquirer.prompt(questions).then(function(answers){
-			letter = answers.letter;
-			word.checker();
-		})
-	}
-	else{
-		var questions = [{
-			type: "input",
-			name: "word",
-			message: "Which word do you choose?"
-		}];
-
-		inquirer.prompt(questions).then(function(answers){
-			wordGuess = answers.word;
-			word.checker();
-		})
-	}
-	
-};
 
 exports.requestInfo();

@@ -19,3 +19,7 @@ exports.checker = function(){
 		}
 	}
 }; 
+
+exports.wordCheck = function(){
+	console.log("checking word...");
+};
