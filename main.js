@@ -2,6 +2,8 @@
 var game = require('./game.js');
 //Requires readline so that we can read user input in the console.
 var inquirer = require('inquirer');
+//Requires the word.js file so that we can check the words.
+var word = require('./word.js');
 //Variable set up to hold the choice that the player makes later in requestInfo.
 var choice;
 //Variable set up to hold the letter the player choose in the guess function.
@@ -10,7 +12,6 @@ exports.letter;
 exports.wordGuess;
 //Creates a variable called chosenWord that is set to equal the game.js function chooseWord's return. (Is this even english anymore?) This is an exports because we will need to acces it in other JS files. 
 exports.chosenWord = game.chooseWord();
-console.log(exports.chosenWord);
 
 //Function to request user input to decide whether you want to guess a letter or guess the word, then ask you what letter or word you want to guess. 
 exports.requestInfo = function(){
