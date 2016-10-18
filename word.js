@@ -8,7 +8,7 @@ exports.checker = function(){
 	for(var i = 0; i < wordToCheck.length; i++){
 		console.log(wordToCheck.charAt(i));
 		if(wordToCheck.charAt(i) == main.letter){
-			console.log("Function to display the guessed letter in the console in letter.js");
+			console.log("Function to add guessed letter to array");
 		}
 		else{
 			console.log("Function to tighten the hangman's noose.");

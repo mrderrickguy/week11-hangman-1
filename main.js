@@ -15,9 +15,11 @@ exports.wordGuess;
 //Creates a variable called chosenWord that is set to equal the game.js function chooseWord's return. (Is this even english anymore?) This is an exports because we will need to acces it in other JS files. 
 exports.chosenWord = game.chooseWord();
 
+letter.initDisplay();
+letter.displayWord();
+
 //Function to request user input to decide whether you want to guess a letter or guess the word, then ask you what letter or word you want to guess. 
 exports.requestInfo = function(){
-	letter.displayWord();
 	var questions = [
 	{
 		type: "input",
