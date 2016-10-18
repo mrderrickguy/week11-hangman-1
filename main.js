@@ -4,6 +4,8 @@ var game = require('./game.js');
 var inquirer = require('inquirer');
 //Requires the word.js file so that we can check the words.
 var word = require('./word.js');
+//Requires the letter.js file so that we can display the words.
+var letter = require('./letter.js')
 //Variable set up to hold the choice that the player makes later in requestInfo.
 var choice;
 //Variable set up to hold the letter the player choose in the guess function.
@@ -15,6 +17,7 @@ exports.chosenWord = game.chooseWord();
 
 //Function to request user input to decide whether you want to guess a letter or guess the word, then ask you what letter or word you want to guess. 
 exports.requestInfo = function(){
+	letter.displayWord();
 	var questions = [
 	{
 		type: "input",
