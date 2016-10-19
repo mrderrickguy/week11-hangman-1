@@ -43,7 +43,7 @@ exports.requestInfo = function(){
 			{
 				type: "input",
 				name: "letter",
-				message: "Which letter do you choose?\n You have already chosen: "+word.letterArr+"\nCurrent Guess: "
+				message: "You have already chosen: "+word.letterArr+"\nCurrent Guess: "
 			}
 			];
 
