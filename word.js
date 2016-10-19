@@ -1,10 +1,11 @@
 //Requires the game.js file so that we can import the word we want the user to guess. 
 var main = require("./main.js");
 var letter = require("./letter.js");
-
+exports.letterArr = [];
 //Function to check if a letter is present in the word.
 exports.checker = function(){
 	var wordToCheck = main.chosenWord;
+	exports.letterArr.push(main.letter);
 	var detected = 0; 
 	for(var i = 0; i < wordToCheck.length; i++){
 		if(wordToCheck.charAt(i) == main.letter){
@@ -16,13 +17,7 @@ exports.checker = function(){
 	if(detected == 0){
 		main.lives++; 
 	}
-
-	if(main.gameOver == false){
-		main.requestInfo();
-	}
-	else if(main.gameOver == true){
-		console.log("Game over");
-	}
+	main.requestInfo();
 
 }; 
 

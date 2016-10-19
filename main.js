@@ -12,23 +12,19 @@ var choice;
 exports.letter; 
 //Variable to hold the word the player guesses in the guess function.
 exports.wordGuess;
-//Variable to hold the value of the game and whether it is in session or not.
-exports.gameOver = false; 
 //Variable to hold he number of lives that you have used. 
 exports.lives = 0; 
 //Creates a variable called chosenWord that is set to equal the game.js function chooseWord's return. (Is this even english anymore?) This is an exports because we will need to acces it in other JS files. 
 exports.chosenWord = game.chooseWord();
 
-letter.initDisplay();
-letter.displayWord();
-
 //Function to request user input to decide whether you want to guess a letter or guess the word, then ask you what letter or word you want to guess. 
 exports.requestInfo = function(){
 	if(exports.lives >= 10){
-		console.log("You have lost. Would you like to play again?")
-		playAgain();
+		console.log("Looks like ya lose kid. Better luck next year.");
+		exports.playAgain();
 	}
-	var questions = [
+	else{
+		var questions = [
 	{
 		type: "list",
 		name: "whatDo",
@@ -47,7 +43,7 @@ exports.requestInfo = function(){
 			{
 				type: "input",
 				name: "letter",
-				message: "Which letter do you choose?"
+				message: "Which letter do you choose?\n You have already chosen: "+word.letterArr+"\nCurrent Guess: "
 			}
 			];
 
@@ -76,6 +72,8 @@ exports.requestInfo = function(){
 			exports.requestInfo();
 		}
 	})
+	}
+	
 };
 
 //Function to reset the game and allow the user to play again. 
@@ -98,6 +96,7 @@ exports.playAgain = function(){
 			exports.chosenWord = game.chooseWord();
 			letter.guessArr = [];
 			letter.wordArr = [];
+			word.letterArr = [];
 			letter.initDisplay();
 			letter.displayWord();
 			exports.requestInfo();
@@ -105,7 +104,9 @@ exports.playAgain = function(){
 		else{
 			console.log("Thanks for playing!");
 		}
-	})
+	});
 }
-//Kicks off the first requestInfo function. Will need to make this run until the word has been guessed/the man has been hung. 
+//These three functions kick off the game.  
+letter.initDisplay();
+letter.displayWord();
 exports.requestInfo();
