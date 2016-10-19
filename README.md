@@ -10,5 +10,4 @@ We were tasked with recreating out Hangman game that we had created much earlier
 * Exports/Require
 	- Exports/require were new concepts to me at this point in the course. We used them to be able to access variables and functions that we otherwise would not have been able to access within the other JS files. 
 # Challenges
-This exercise proved to be very challenging! I am currently unable to figure out how to use constructors properly in this game. 
-
+This exercise proved to be very challenging! I am currently unable to figure out how to use constructors properly in this game. The game is mostly functioning without a constructor however, I will figure this out!
