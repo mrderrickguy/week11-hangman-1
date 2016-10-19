@@ -5,13 +5,18 @@ var letter = require("./letter.js");
 //Function to check if a letter is present in the word.
 exports.checker = function(){
 	var wordToCheck = main.chosenWord;
+	var detected = 0; 
 	for(var i = 0; i < wordToCheck.length; i++){
 		if(wordToCheck.charAt(i) == main.letter){
 			letter.editArray(i, main.letter);
+			detected++;
 		}
 	}
 	letter.displayWord();
-	main.lives++; 
+	if(detected == 0){
+		main.lives++; 
+	}
+
 	if(main.gameOver == false){
 		main.requestInfo();
 	}
@@ -30,6 +35,10 @@ exports.wordCheck = function(){
 		main.playAgain();
 	}
 	else{
+		console.log(guess);
+		console.log(typeof guess);
+		console.log(word);
+		console.log(typeof word);
 		console.log("Sorry, incorrect.");
 		main.lives++;
 		main.requestInfo();

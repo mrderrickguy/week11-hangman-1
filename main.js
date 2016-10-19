@@ -32,7 +32,7 @@ exports.requestInfo = function(){
 	{
 		type: "list",
 		name: "whatDo",
-		message: "What would you like to guess?",
+		message: "What would you like to guess?\n You have used "+exports.lives+" out of 10. Be careful.",
 		choices:[
 		"letter",
 		"word"
