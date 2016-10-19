@@ -21,5 +21,13 @@ exports.checker = function(){
 }; 
 
 exports.wordCheck = function(){
-	console.log("checking word...");
+	var guess = main.wordGuess;
+	var word = main.chosenWord;
+	if(guess == word){
+		console.log("You guessed it!");
+	}
+	else{
+		console.log("Sorry, incorrect.");
+		main.requestInfo();
+	}
 };
