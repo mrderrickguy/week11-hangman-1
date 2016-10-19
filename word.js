@@ -11,6 +11,7 @@ exports.checker = function(){
 		}
 	}
 	letter.displayWord();
+	main.lives++; 
 	if(main.gameOver == false){
 		main.requestInfo();
 	}
@@ -20,14 +21,17 @@ exports.checker = function(){
 
 }; 
 
+//Function to check if the word guessed is correct. If it is, then we tell the user that they guessed it, we should then ask if they want to play again.
 exports.wordCheck = function(){
 	var guess = main.wordGuess;
 	var word = main.chosenWord;
 	if(guess == word){
 		console.log("You guessed it!");
+		main.playAgain();
 	}
 	else{
 		console.log("Sorry, incorrect.");
+		main.lives++;
 		main.requestInfo();
 	}
 };
