@@ -30,15 +30,22 @@ exports.checker = function(){
 exports.wordCheck = function(){
 	var guess = main.wordGuess;
 	var word = main.chosenWord;
-	if(guess == word){
+	var isNotEqual; 
+//Compare each character in the word and the guess and set false is not equal. 
+	for(var k = 0; k<word.length; k++){
+		if(guess[k] != word[k]){
+			isNotEqual = false; 
+		}
+		else{
+			isNotEqual = true; 
+		}
+	}
+
+	if(isNotEqual == true){
 		console.log("You guessed it!");
 		main.playAgain();
 	}
 	else{
-		console.log(guess);
-		console.log(typeof guess);
-		console.log(word);
-		console.log(typeof word);
 		console.log("Sorry, incorrect.");
 		main.lives++;
 		main.requestInfo();
