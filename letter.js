@@ -1,18 +1,18 @@
 var main = require('./main.js');
-var guessArr = [];
+exports.guessArr = [];
 var guessDisplay = "";
-var wordArr = [];
+exports.wordArr = [];
 
 //Separates the wordChoice into an array for easier accessibility.
 exports.initDisplay = function(){
 	var wordChoice = main.chosenWord;
 	for(var i = 0; i<wordChoice.length; i++){
-		wordArr.push(wordChoice.charAt(i));
+		exports.wordArr.push(wordChoice.charAt(i));
 		if(wordChoice.charAt(i) == '\xa0'){
-			guessArr.push('\xa0');		
+			exports.guessArr.push('\xa0');		
 		}
 		else{
-		guessArr.push('_');
+		exports.guessArr.push('_');
 		}
 	};
 }
@@ -20,13 +20,13 @@ exports.initDisplay = function(){
 //Displays what the user has guessed/blanks in the word file. 
 exports.displayWord = function(){
 	guessDisplay = "";
-	for(var i = 0; i <guessArr.length; i++){
-		guessDisplay += guessArr[i]+" ";
+	for(var i = 0; i <exports.guessArr.length; i++){
+		guessDisplay += exports.guessArr[i]+" ";
 	}
 	console.log(guessDisplay);
 };
 
 //Function to make changes to the guessArray when a correct letter is guessed. 
 exports.editArray = function(position, letter){
-	guessArr[position] = letter; 
+	exports.guessArr[position] = letter; 
 };

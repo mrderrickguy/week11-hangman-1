@@ -80,7 +80,32 @@ exports.requestInfo = function(){
 
 //Function to reset the game and allow the user to play again. 
 exports.playAgain = function(){
-	console.log("This most definitely needs work. Is this where constructors help out?");
+	var questions = [
+	{
+		type: "list",
+		name: "playAgain",
+		message: "Would you like to play again?",
+		choices:[
+		"yes",
+		"no"
+		]
+	}
+	];
+
+	inquirer.prompt(questions).then(function(answer){
+		if(answer.playAgain == "yes"){
+			exports.lives = 0; 
+			exports.chosenWord = game.chooseWord();
+			letter.guessArr = [];
+			letter.wordArr = [];
+			letter.initDisplay();
+			letter.displayWord();
+			exports.requestInfo();
+		}
+		else{
+			console.log("Thanks for playing!");
+		}
+	})
 }
 //Kicks off the first requestInfo function. Will need to make this run until the word has been guessed/the man has been hung. 
 exports.requestInfo();
